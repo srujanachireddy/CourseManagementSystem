@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Course Management System{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h2>Dashboard</h2>
+    <p>Welcome back, {{ session.user_name }}! Here's an overview of your account.</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ total_courses }}</h3>
+            <p>Total Courses</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ total_students }}</h3>
+            <p>Total Students</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+        </div>
+        <div class="stat-info">
+            <h3>{{ user_courses }}</h3>
+            <p>Your Courses</p>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-content">
+    <div class="recent-activity">
+        <h3>Recent Activity</h3>
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="activity-content">
+                    <p>New student registered</p>
+                    <span class="activity-time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="activity-content">
+                    <p>New course added: "Advanced Python Programming"</p>
+                    <span class="activity-time">1 day ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <div class="activity-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="activity-content">
+                    <p>System performance report generated</p>
+                    <span class="activity-time">3 days ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+            <a href="{{ url_for('courses') }}" class="action-btn">
+                <i class="fas fa-plus"></i>
+                <span>Add Course</span>
+            </a>
+            <a href="{{ url_for('students') }}" class="action-btn">
+                <i class="fas fa-user-plus"></i>
+                <span>Add Student</span>
+            </a>
+            <a href="#" class="action-btn">
+                <i class="fas fa-file-export"></i>
+                <span>Generate Report</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to EduManage</h1>
+        <p>A comprehensive course management system built with Flask</p>
+        <div class="hero-buttons">
+            {% if not session.user_id %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+            {% else %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-image">
+        <i class="fas fa-laptop-code"></i>
+    </div>
+</div>
+
+<div class="features-section">
+    <h2>Features</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <h3>Course Management</h3>
+            <p>Create, manage, and organize courses with ease</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Student Management</h3>
+            <p>Manage student enrollments and track progress</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Analytics</h3>
+            <p>Get insights with comprehensive reporting</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
